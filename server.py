@@ -23,10 +23,6 @@ def index():
 def return_top_videos():
     # Call youtube api
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 087b407a987baaef6c105c961766edf661768d74
 
 if __name__ == "__main__":
     app.debug = True
