@@ -19,6 +19,10 @@ def index():
 
     return render_template("homepage.html")
 
+@app.route('/videos.json')
+def return_top_videos():
+    # Call youtube api
+
 
 if __name__ == "__main__":
     app.debug = True
