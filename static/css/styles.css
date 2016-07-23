@@ -11,6 +11,15 @@
     color: #FFFFFF;
 }
 
+.navbar-default .navbar-brand:hover {
+    color: #000000;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 26px;
+}
+
 #searchbox {
     width: 200px;
 }
