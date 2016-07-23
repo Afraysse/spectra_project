@@ -1,5 +1,10 @@
 #!/usr/bin/python
+
 import os
+from apiclient.discovery import build
+from apiclient.errors import HttpError
+from oauth2client.tools import argparser
+
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
@@ -40,3 +45,32 @@ def youtube_search(regioncode):
 
 
 
+=======
+DEVELOPER_KEY = "AIzaSyCPnMuIk4KaT2EMbVcL_64dC4o3Ump81dU"
+YOUTUBE_API_SERVICE_NAME = "youtube"
+YOUTUBE_API_VERSION = "v3"
+
+
+def youtube_search(regioncode):
+    youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY)
+
+    # Call the videos.list method to retrieve location details for each video.
+    video_response = youtube.videos().list(part='snippet',
+                                           regionCode=regioncode,
+                                           hl="en",
+                                           maxResults=10,
+                                           chart="mostPopular"
+                                           ).execute()
+
+    print video_response
+
+    # videos = []
+
+    # # Add each result to the list, and then display the list of matching videos.
+    # for video_result in video_response.get("items", []):
+    #   videos.append("%s, (%s,%s)" % (video_result["snippet"]["title"],
+    #                           video_result["recordingDetails"]["location"]["latitude"],
+    #                           video_result["recordingDetails"]["location"]["longitude"]))
+
+    # print "Videos:\n", "\n".join(videos), "\n"
+>>>>>>> 087b407a987baaef6c105c961766edf661768d74
