@@ -2,4 +2,10 @@
 
 {% block title %}{% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+  <div id="map" style="width:700px; height:500px;"></div>
+
+  <!-- Google Maps API -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initMap"></script>
+  <script src="/static/js/map.js"></script>
+{% endblock %}
