@@ -11,6 +11,10 @@
     color: #FFFFFF;
 }
 
+#searchbox {
+    width: 200px;
+}
+
 #right-col {
     height: 100%;
     min-height: 100%;
