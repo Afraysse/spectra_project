@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import json
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
@@ -23,24 +24,31 @@ def youtube_search(regioncode):
     youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY)
 
     # Call the videos.list method to retrieve location details for each video.
-    video_response = youtube.videos().list(part='snippet',
+    response = youtube.videos().list(part='snippet, statistics',
                                            regionCode=regioncode,
                                            hl="en",
                                            maxResults=10,
                                            chart="mostPopular"
                                            ).execute()
 
-    print video_response
+    video_objs = response["items"]
 
-    # videos = []
+    videos = []
 
-    # # Add each result to the list, and then display the list of matching videos.
-    # for video_result in video_response.get("items", []):
-    #   videos.append("%s, (%s,%s)" % (video_result["snippet"]["title"],
-    #                           video_result["recordingDetails"]["location"]["latitude"],
-    #                           video_result["recordingDetails"]["location"]["longitude"]))
+    for video in video_objs:
+        vid = {}
 
-    # print "Videos:\n", "\n".join(videos), "\n"
+        vid["title"] = video["snippet"]["title"]
+        vid["description"] = video["snippet"]["description"]
+        vid["thumbnails"] = json.dumps({"url": video["snippet"]["thumbnails"]["default"]["url"]})
+        vid["channel"] = video["snippet"]["channelTitle"]
+        vid["viewcount"] = video["statistics"]["viewCount"]
+        vid["likecount"] = video["statistics"]["likeCount"]
+        vid["dislikecount"] = video["statistics"]["dislikeCount"]
+
+        videos.append(vid)
+
+    return videos
 
 
 
