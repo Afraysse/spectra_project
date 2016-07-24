@@ -11,13 +11,31 @@
     color: #FFFFFF;
 }
 
+.navbar-default .navbar-brand:hover {
+    color: #000000;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+#searchbox {
+    width: 200px;
+}
+
+#left-col {
+    height: 550px;
+    overflow: auto;
+}
+
 #right-col {
     height: 100%;
     min-height: 100%;
 }
 
 #map {
-    height: 500px;
+    height: 550px;
     width: 100%;
 }
 

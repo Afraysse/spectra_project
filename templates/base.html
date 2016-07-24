@@ -35,19 +35,21 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Trending YouTube Videos</a>
+        <a class="navbar-brand" href="/">TrendTube</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search by country">
+        <form class="navbar-form navbar-right" role="search" action="/search">
+          <div class="input-group">
+            <input class="form-control" id="searchbox" type="search" name="q" aria-label="Search by country or topic" placeholder="Search by country or topic">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
         </form>
-        
       </div><!-- /.navbar-collapse -->
+
     </div><!-- /.container-fluid -->
   </nav>
 
