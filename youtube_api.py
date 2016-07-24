@@ -40,11 +40,11 @@ def youtube_search(regioncode):
 
         vid["title"] = video["snippet"]["title"]
         vid["description"] = video["snippet"]["description"]
-        vid["thumbnails"] = json.dumps({"url": video["snippet"]["thumbnails"]["default"]["url"]})
+        vid["thumbnail_url"] = video["snippet"]["thumbnails"]["default"]["url"]
         vid["channel"] = video["snippet"]["channelTitle"]
         vid["viewcount"] = video["statistics"]["viewCount"]
-        vid["likecount"] = video["statistics"]["likeCount"]
-        vid["dislikecount"] = video["statistics"]["dislikeCount"]
+        # vid["likecount"] = video["statistics"]["likeCount"]
+        # vid["dislikecount"] = video["statistics"]["dislikeCount"]
 
         videos.append(vid)
 
