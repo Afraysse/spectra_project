@@ -2,7 +2,7 @@
 
 from jinja2 import StrictUndefined
 
-from flask import Flask, render_template, redirect, request, flash
+from flask import Flask, render_template, redirect, request, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from helper_functions import reverse_geocode
 from youtube_api import youtube_search 
@@ -21,21 +21,20 @@ def index():
 
     return render_template("homepage.html")
 
-@app.route('/get-videos.json', methods=['POST'])
+@app.route('/get-videos.json', methods=['POST', 'GET'])
 def return_top_videos():
 
-    latitude = request.form.get("latitude")
-    longitude = request.form.get("longitude")
+    latitude = request.args.get("latitude")
+    longitude = request.args.get("longitude")
 
-    country_code = reverse_geocode(latitude, longitude)
-    videos = youtube_search(country_code)
+    # country_code = reverse_geocode(latitude, longitude)
+
+    videos = youtube_search('US')
 
     return jsonify(videos=videos)
 
 if __name__ == "__main__":
     app.debug = True
-
-    connect_to_db(app)
 
     # Use the DebugToolbar
     DebugToolbarExtension(app)
