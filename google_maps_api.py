@@ -4,7 +4,7 @@ import requests
 GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
 
 
-def get_reverse_geocode_response(latitude, longitude):
+def reverse_geocode(latitude, longitude):
     """Return a JSON response from Google Maps Reverse Geocoding API."""
 
     url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={},{}&rkey={}".format(latitude, longitude, GOOGLE_API_KEY)
