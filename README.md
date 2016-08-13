@@ -1,5 +1,9 @@
 TRENDTUBE
 ---
+
+<img src="/static/img/screenshots/homepage.png" width="400">
+<img src="/static/img/screenshots/watch-video.png" width="400">
+
 **TrendTube** lets users click on the world map to see the trending videos for a specific country. Be aware of what's happening around you and around the world!
 
 Note: This app was created during the one-day [Spectra Hackathon](http://sospectra.com) at YouTube.
