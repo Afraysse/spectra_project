@@ -25,7 +25,7 @@ def youtube_search(regioncode):
     youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY)
 
     response = youtube.videos().list(part='snippet, statistics',
-                                     regionCode=regioncode,
+                                     regionCode="regioncode",
                                      hl="en",
                                      maxResults=10,
                                      chart="mostPopular"
@@ -37,6 +37,7 @@ def youtube_search(regioncode):
     for video in response.get("items", []):
         vid = {}
 
+        vid["id"] = video["id"]
         vid["title"] = video["snippet"]["title"]
         vid["description"] = video["snippet"]["description"]
         vid["thumbnail_url"] = video["snippet"]["thumbnails"]["default"]["url"]
