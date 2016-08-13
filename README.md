@@ -1,4 +1,4 @@
-TrendTube
+TRENDTUBE
 ---
 **TrendTube** lets users click on the world map to see the trending videos for a specific country. Be aware of what's happening around you and around the world!
 
@@ -57,4 +57,4 @@ Katie Tarng is a Software Engineer living in the San Francisco Bay Area.
 [Email](mailto:katietarng@gmail.com) | [LinkedIn](https://www.linkedin.com/in/katietarng) | [Twitter](http://twitter.com/katiecodes23)
 
 Allison Scofield is a Software Engineer living in Southern California. 
-[Email](mailto:allisonscofield@gmail.com) | [LinkedIn](https://www.linkedin.com/in/allisonscofield).
+[Email](mailto:allisonscofield@gmail.com) | [LinkedIn](https://www.linkedin.com/in/allisonscofield)
