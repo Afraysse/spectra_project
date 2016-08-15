@@ -4,7 +4,7 @@ var map, marker, latitude, longitude;
 
 function showVideos(result) {
 
-    $(".list-group").append('<h2>Top 10 Videos in ' + result.region + '</h2>');
+    $(".list-group").append('<h3>Top 10 Videos in ' + result.region + '</h3>');
 
     $.each(result.videos, function(i, video) {
 
@@ -14,11 +14,17 @@ function showVideos(result) {
                                     '<img class="media-object" src="' + video.vid_tn_url + '" style="width: 100px;" alt="' + 'Video for ' + video.vid_title + '">' +
                                 '</div>' +
                                 '<div class="media-body">' +
-                                    '<h4 class="media-heading">' + video.vid_title + '</h4>' +
-                                    '<p>' + video.vid_desc + '</p>' +
+                                    '<h5 class="media-heading">' + video.vid_title + '</h5>' +
+                                    '<p>' + 
+                                        '<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ' + video.vid_views + '<br>' +
+                                        '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> ' + video.vid_likes +
+                                        ' <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> ' + video.vid_dislikes +
+                                    '</p>' +
                                 '</div>' +
                             '</div>' +
                         '</a>');
+
+        console.log(videoDiv);
 
         $(".list-group").append(videoDiv);
     });
