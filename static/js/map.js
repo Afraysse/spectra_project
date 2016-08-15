@@ -4,55 +4,55 @@ var map, marker, latitude, longitude;
 
 function showVideos(result) {
 
-    console.log(result);
+    var videos = result;
 
-    // var videos = $.each(videos, function (key, value) {
-    //                 $("#modal-" + result.id).find(".modal-body .matched-ing")
-    //                 .append('<i class="fa fa-square-o" aria-hidden="true" style="font-size: x-small"></i>  ' + value.name + ' ' + (value.amount).toFixed(1) + ' ' + value.unit + '<br>');
-    //              });
+    $.each(videos, function(i, video) {
 
-    for (var video in result) {
+        var videoDiv = ('<a href="https://www.youtube.com/watch?v=' + video.vid_id + '" class="list-group-item popup-link">' +
+                            '<div class="media">' +
+                                '<div class="media-left">' +
+                                    '<img class="media-object" src="' + video.vid_tn_url + '" style="width: 100px;" alt="' + 'Video for ' + video.vid_title + '">' +
+                                '</div>' +
+                                '<div class="media-body">' +
+                                    '<h4 class="media-heading">' + video.vid_title + '</h4>' +
+                                        '<p>' + video.vid_desc + '</p>' +
+                                '</div>' +
+                            '</div>' +
+                        '</a>');
 
-        console.log(video);
-        console.log(video.channel);
-
-
-    }
-
-    // $("#left-col").html
-
-
-
+        $(".list-group").append(videoDiv);
+    });
 }
 
-// Create marker or change position of existing marker
+
+// Create marker or change position of existing marker on map
 // Source: http://jsfiddle.net/bryan_weaver/gtgw8/
 function placeMarker(location) {
     if (marker) {
         marker.setPosition(location);
     } else {
-        marker = new google.maps.Marker({          
+        marker = new google.maps.Marker({
             position: location,
             map: map,
             draggable: true
         });
     }
 
-    // Keep track of latitude and longitude
     latitude = marker.position.lat();
     longitude = marker.position.lng();
 
     var coordinates = {
-        "latitude": longitude,
-        "longitude": latitude
-    }
+        "latitude": latitude,
+        "longitude": longitude
+    };
 
-    // AJAX post request to server with coordinates to get videos
-    $.get("/get-videos.json", coordinates, showVideos);
-    // $.post("/get-videos.json",
-    //        coordinates,
-    //        showVideos
-    //        );
+    $(".list-group").empty();
+
+    // Pass the coordinates to the server in order to get a list of videos
+    $.post("/get-videos.json",
+           coordinates,
+           showVideos
+           );
 }
 
 function initMap() {
@@ -63,10 +63,10 @@ function initMap() {
         center: centerOfWorld,
     };
 
-    map = new google.maps.Map($('#map')[0], options);
+    map = new google.maps.Map($("#map")[0], options);
 
     // Add marker to map when clicked
-    google.maps.event.addListener(map, 'click', function (evt) {
+    google.maps.event.addListener(map, "click", function (evt) {
         placeMarker(evt.latLng);
     });
 }
