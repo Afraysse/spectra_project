@@ -4,9 +4,9 @@ var map, marker, latitude, longitude;
 
 function showVideos(result) {
 
-    var videos = result;
+    $(".list-group").append('<h2>Top 10 Videos in ' + result.region + '</h2>');
 
-    $.each(videos, function(i, video) {
+    $.each(result.videos, function(i, video) {
 
         var videoDiv = ('<a href="https://www.youtube.com/watch?v=' + video.vid_id + '" class="list-group-item popup-link">' +
                             '<div class="media">' +
@@ -15,7 +15,7 @@ function showVideos(result) {
                                 '</div>' +
                                 '<div class="media-body">' +
                                     '<h4 class="media-heading">' + video.vid_title + '</h4>' +
-                                        '<p>' + video.vid_desc + '</p>' +
+                                    '<p>' + video.vid_desc + '</p>' +
                                 '</div>' +
                             '</div>' +
                         '</a>');

@@ -31,7 +31,12 @@ def return_top_videos():
 
     country_code = get_country_code(reverse_geocode(latitude, longitude))
 
-    videos = youtube_search(country_code)
+    yt_videos = youtube_search(country_code)
+
+    videos = {
+        "region": country_code,
+        "videos": yt_videos
+    }
 
     return jsonify(videos)
 
