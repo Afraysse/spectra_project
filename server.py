@@ -29,9 +29,13 @@ def return_top_videos():
     latitude = request.form.get("latitude")
     longitude = request.form.get("longitude")
 
-    country_code = get_country_code(reverse_geocode(latitude, longitude))
+    try:
+        country_code = get_country_code(reverse_geocode(latitude, longitude))
+        yt_videos = youtube_search(country_code)
 
-    yt_videos = youtube_search(country_code)
+    except:
+        print "exception"
+        return "exception"
 
     videos = {
         "region": country_code,
