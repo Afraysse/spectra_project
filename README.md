@@ -19,9 +19,7 @@ Note: This app was created during the one-day [Spectra Hackathon](http://sospect
 
 **Back-end:** [Python](https://www.python.org/), [Flask](http://flask.pocoo.org/)
 
-**APIs:** [Google Maps Javascript](https://developers.google.com/maps/documentation/javascript)
-          [Google Maps Geocoding](https://developers.google.com/maps/documentation/geocoding)
-          [Youtube Data Search](https://developers.google.com/youtube/v3)
+**APIs:** [Google Maps Javascript](https://developers.google.com/maps/documentation/javascript), [Google Maps Geocoding](https://developers.google.com/maps/documentation/geocoding), [Youtube Data Search](https://developers.google.com/youtube/v3)
 
 ## <a name="features"></a>Features
 + Users can click on the world map to see the top 10 trending videos for a specific country.
@@ -43,7 +41,7 @@ $ source env/bin/activate
 Install the dependencies:
 ```$ pip install -r requirements.txt```
 
-Get an API key from Google, store it in a secrets.sh file, and make sure to put the file in your `.gitignore`.
+Get an API key from Google, store it in a `secrets.sh` file, and make sure to put the file in your `.gitignore`.
 
 Finally, to run the app, start the server:
 ```$ python server.py```
