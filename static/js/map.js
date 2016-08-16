@@ -15,7 +15,7 @@ function showVideos(result) {
                                 '</div>' +
                                 '<div class="media-body">' +
                                     '<h5 class="media-heading">' + video.vid_title + '</h5>' +
-                                    '<p>' + 
+                                    '<p>' +
                                         '<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ' + video.vid_views + '<br>' +
                                         '<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> ' + video.vid_likes +
                                         ' <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> ' + video.vid_dislikes +
@@ -24,9 +24,17 @@ function showVideos(result) {
                             '</div>' +
                         '</a>');
 
-        console.log(videoDiv);
-
         $(".list-group").append(videoDiv);
+    });
+
+    $('.popup-link').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+
+        fixedContentPos: false
     });
 }
 
